@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 
+import BackButton from '@/components/BackButton';
+
 export default function ButtonGroups(): React.ReactElement {
   // 1: 定義計數狀態
   const [count, setCount] = useState<number>(0);
@@ -27,6 +29,7 @@ export default function ButtonGroups(): React.ReactElement {
 
   return (
     <div className='min-h-screen flex flex-col items-center p-10 relative'>
+      <BackButton className='fixed left-4 top-4' />
       <div className='my-10'>
         <ol>
           <li>1. CLICK:0 按鈕中的數字，請⽤ useState 處理該值，按下按鈕時讓數字 +1。</li>

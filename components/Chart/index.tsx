@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+import BackButton from '@/components/BackButton';
+
 // API 回傳的商品格式
 interface Product {
   id: number;
@@ -53,6 +55,7 @@ const SimpleBarChart = () => {
 
   return (
     <div className='flex flex-col w-full min-h-screen justify-center items-center'>
+      <BackButton className='fixed left-4 top-4' />
       <div className='mb-4'>使用套件：<a href="https://recharts.org/" target="_blank">Recharts</a></div>
       <ResponsiveContainer width="90%" height={400}>
         <BarChart
