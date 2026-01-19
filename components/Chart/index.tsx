@@ -30,12 +30,12 @@ const SimpleBarChart = () => {
     try {
       // 使用 Fake Store API
       const res = await fetch('https://fakestoreapi.com/products?limit=8');
-      const json: Product[] = await res.json();
+      const products: Product[] = await res.json();
 
       // 自定義 X 軸的標籤陣列
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
 
-      const formatData = json.map((product, index) => {
+      const formatData = products.map((product, index) => {
         return {
           name: months[index],
           價格: product.price,
