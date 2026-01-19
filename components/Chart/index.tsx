@@ -26,30 +26,30 @@ interface ChartData {
 const SimpleBarChart = () => {
   const [chartData, setChartData] = useState<ChartData[]>([]);
 
-  const fetchData = async () => {
-    try {
-      // 使用 Fake Store API
-      const res = await fetch('https://fakestoreapi.com/products?limit=8');
-      const products: Product[] = await res.json();
-
-      // 自定義 X 軸的標籤陣列
-      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
-
-      const formatData = products.map((product, index) => {
-        return {
-          name: months[index],
-          價格: product.price,
-          數量: product.rating.count,
-        };
-      });
-
-      setChartData(formatData);
-    } catch (error) {
-      console.error('抓取資料失敗:', error);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 使用 Fake Store API
+        const res = await fetch('https://fakestoreapi.com/products?limit=8');
+        const products: Product[] = await res.json();
+
+        // 自定義 X 軸的標籤陣列
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+
+        const formatData = products.map((product, index) => {
+          return {
+            name: months[index],
+            價格: product.price,
+            數量: product.rating.count,
+          };
+        });
+
+        setChartData(formatData);
+      } catch (error) {
+        console.error('抓取資料失敗:', error);
+      }
+    };
+
     fetchData();
   }, []);
 
