@@ -57,23 +57,25 @@ const SimpleBarChart = () => {
     <div className='flex flex-col w-full min-h-screen justify-center items-center'>
       <BackButton className='fixed left-4 top-4' />
       <div className='mb-4'>使用套件：<a href="https://recharts.org/" target="_blank">Recharts</a></div>
-      <ResponsiveContainer width="90%" height={400}>
-        <BarChart
-          data={chartData}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis
-            dataKey="name"
-            tick={{ fontSize: 12 }}
-          />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="價格" fill="#2465b5" name="價格" stackId='a' />
-          <Bar dataKey="數量" fill="#65b985" name="數量" stackId='a' />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className='w-full md:w-[90%] lg:w-[70%] h-[400px]'>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart
+            data={chartData}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <XAxis
+              dataKey="name"
+              tick={{ fontSize: 12 }}
+            />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="價格" fill="#2465b5" name="價格" stackId='a' maxBarSize={50} />
+            <Bar dataKey="數量" fill="#65b985" name="數量" stackId='a' maxBarSize={50} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };
